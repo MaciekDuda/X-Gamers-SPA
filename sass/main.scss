@@ -1,0 +1,434 @@
+@use "colors" as c;
+@use "animate";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-padding-top: 82px;
+}
+
+body {
+	font-family: "Montserrat", sans-serif;
+	background-color: #444;
+	position: relative;
+	background-color: c.$bg-color;
+}
+
+h2 {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.underline {
+	width: 60px;
+	height: 4px;
+	background-color: c.$main-color;
+	margin: 0 auto 40px;
+}
+.thin-underline {
+	width: 90%;
+	height: 2px;
+	background-color: c.$lightgrey-color;
+	margin: 0 auto 40px;
+}
+
+.shadow-bg {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+// NAWIGACJA
+
+nav {
+	text-transform: uppercase;
+	transition: background-color 0.6s;
+	z-index: 1;
+
+	.navbar-brand,
+	.navbar-nav a
+ {
+		color: c.$white-color;
+	}
+
+	.navbar-nav {
+		
+		.active {
+			color: c.$main-color;
+		}
+
+	}
+	
+
+	.navbar-nav a:hover {
+		color: c.$main-color;
+		
+	}
+	.navbar-brand {
+		font-weight: bold;
+	}
+	.fa-bars {
+		color: c.$white-color;
+		padding: 10px;
+	}
+}
+
+// HEADER
+
+header {
+	color: c.$white-color;
+
+	h1 {
+		text-transform: uppercase;
+		font-size: 30px;
+	}
+
+	p {
+		font-size: 14px;
+	}
+
+	.hero-img {
+		position: relative;
+		height: 100vh;
+		background-image: url(../img/playstation-gd3a2bb27e_640.jpg);
+		background-position: center;
+		background-size: cover;
+		background-attachment: fixed;
+		z-index: 0;
+	}
+	.hero-shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.6);
+		z-index: -10;
+	}
+	.hero-text {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		z-index: 5;
+		padding: 10px;
+		text-align: center;
+	}
+	.btn-outline-light {
+		text-transform: uppercase;
+	}
+	.fa-chevron-down {
+		position: absolute;
+		font-size: 30px;
+		bottom: 20px;
+		left: 50%;
+		transform: translateX(-50%);
+		color: c.$white-color;
+	}
+}
+
+// ABOUT-US
+
+.aboutus {
+	i {
+		margin-top: 20px;
+		font-size: 30px;
+	}
+
+	.aboutus-card-title {
+		font-size: 18px;
+		text-transform: uppercase;
+	}
+
+	.aboutus-card-text {
+		font-size: 14px;
+	}
+
+	.aboutus-hover {
+		// transition: color 0.4s; - gryzie sie z AOS
+	}
+	.aboutus-hover:hover {
+		color: c.$main-color;
+	}
+}
+
+.aboutus-hero {
+	position: relative;
+	background-image: url(../img/technology-ge3758f8fb_640.jpg);
+	background-position: center;
+	background-size: cover;
+	color: c.$lightgrey-color;
+	z-index: 0;
+}
+
+.aboutus-shadow {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: -5;
+}
+
+.aboutus-hero-item {
+	margin: 10px 0;
+	i {
+		font-size: 36px;
+	}
+	.aboutus-hero-title {
+		font-size: 24px;
+	}
+}
+
+// PORTFOLIO
+
+.portfolio {
+	.carousel-item {
+		position: relative;
+		height: 600px;
+
+		.carousel-caption {
+			position: absolute;
+			left: 0;
+			right: 0;
+			padding: 40px 0;
+			background-color: rgba(0, 0, 0, 0.7);
+		}
+		.carousel-indicators {
+			padding-bottom: 20px;
+		}
+	}
+}
+
+// PRICES
+.prices {
+	.prices-box {
+		margin: 20px 10px;
+		padding: 30px;
+		background-color: c.$white-color;
+		background-attachment: fixed;
+		box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+		transition: transform 0.3s;
+
+		h3 {
+			color: c.$main-color;
+			text-transform: uppercase;
+		}
+		span {
+			font-weight: bold;
+		}
+		i {
+			font-size: 24px;
+			padding: 0 5px;
+		}
+		button {
+			padding: 10px 20px;
+			text-transform: uppercase;
+		}
+
+		.price-tag {
+			font-size: 1.5rem;
+			font-weight: bold;
+		}
+	}
+	.prices-box:hover {
+		transform: scale(1.05);
+	}
+
+	.price-info {
+		margin-top: 30px;
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+// TEAM
+
+.team {
+	position: relative;
+	background-image: url(../img/chairs-2181980_640.jpg);
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	z-index: 0;
+
+	.team-shadow {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: -5;
+	}
+
+	h2 {
+		color: c.$lightgrey-color;
+	}
+
+	.card {
+		transition: transform 0.3s;
+		border-radius: 5px;
+		border: 0;
+		overflow: hidden;
+
+		img {
+			height: 300px;
+			object-fit: cover;
+		}
+
+		i {
+			padding: 10px;
+		}
+
+		.card-title {
+			text-align: center;
+			text-transform: uppercase;
+			margin-bottom: 20px;
+		}
+		.card-text {
+			font-size: 12px;
+		}
+
+		.card-body {
+			height: 160px;
+		}
+	}
+	.card:hover {
+		transform: scale(0.95);
+	}
+}
+
+// OSIĄGNIECIA
+
+.achivments {
+	i {
+		padding: 10px;
+		font-size: 48px;
+		color: c.$white-color;
+		text-shadow: 0 0 5px #000;
+	}
+	.achivments-list {
+		padding: 20px 0;
+	}
+	.achivment-number {
+		font-size: 22px;
+	}
+	.achivment-text {
+		font-size: 13px;
+		text-transform: uppercase;
+	}
+}
+
+// KONTAKT
+
+.contact {
+	position: relative;
+	background-image: url(../img/katowice-4682299_640.jpg);
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	z-index: 0;
+
+	.contact-shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		background-color: rgba(0, 9, 27, 0.7);
+		z-index: -5;
+	}
+
+	h2 {
+		color: c.$lightgrey-color;
+		font-weight: bold;
+	}
+
+	.contact-us {
+		color: c.$lightgrey-color;
+		display: flex;
+		align-items: center;
+	}
+
+	.contact-item {
+		margin: 30px 0;
+		text-transform: uppercase;
+
+		h3 {
+			margin-bottom: 15px;
+			letter-spacing: 2px;
+		}
+
+		.social-media {
+			font-size: 36px;
+			a {
+				color: c.$white-color;
+				padding: 10px;
+			}
+			a:hover {
+				color: c.$lightgrey-color;
+			}
+		}
+	}
+}
+
+@media (min-width: 375px) {
+	header {
+		h1 {
+			font-size: 36px;
+		}
+		p {
+			font-size: 16px;
+		}
+	}
+	.card {
+		.card-text {
+			font-size: 16px;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	header {
+		h1 {
+			font-size: 42px;
+		}
+		p {
+			font-size: 20px;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	nav {
+		scroll-padding-top: 82px;
+	}
+
+	.aboutus-hero {
+		background-image: url(../img/technology-2818664.jpg);
+	}
+
+	.prices {
+		.price-info {
+			font-size: 20px;
+		}
+	}
+	.team {
+		background-image: url(../img/chairs-2181980_1920.jpg);
+	}
+
+	.contact {
+		background-image: url(../img/katowice-4682299_1920.jpg);
+	}
+}
+
+@media (min-width: 1200px) {
+	header {
+		.hero-img {
+			background-image: url(../img/playstation-g7d3ddc982_1920.jpg);
+		}
+	}
+}
